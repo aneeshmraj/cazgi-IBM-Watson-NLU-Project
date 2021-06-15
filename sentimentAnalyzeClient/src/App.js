@@ -36,7 +36,7 @@ class App extends React.Component {
   sendForSentimentAnalysis = () => {
     this.setState({sentiment:true});
     let ret = "";
-    let url = "https://sydneybuddy-8080.theiadocker-5.proxy.cognitiveclass.ai/";
+    let url = "https://aneesh-197-sentiment-analyzer-timely-oryx-kv.mybluemix.net/";
 
     if(this.state.mode === "url") {
       url = url+"/url/sentiment?url="+document.getElementById("textinput").value;
@@ -64,7 +64,7 @@ class App extends React.Component {
   sendForEmotionAnalysis = () => {
     this.setState({sentiment:false});
     let ret = "";
-    let url = "https://sydneybuddy-8080.theiadocker-5.proxy.cognitiveclass.ai/";
+    let url = "https://aneesh-197-sentiment-analyzer-timely-oryx-kv.mybluemix.net/";
     if(this.state.mode === "url") {
       url = url+"/url/emotion?url="+document.getElementById("textinput").value;
     } else {
