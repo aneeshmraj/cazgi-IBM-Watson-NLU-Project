@@ -36,7 +36,7 @@ class App extends React.Component {
   sendForSentimentAnalysis = () => {
     this.setState({sentiment:true});
     let ret = "";
-    let url = "https://aneesh-197-sentiment-analyzer-timely-oryx-kv.mybluemix.net";
+    let url = "https://sydneybuddy-8080.theiadocker-5.proxy.cognitiveclass.ai/";
 
     if(this.state.mode === "url") {
       url = url+"/url/sentiment?url="+document.getElementById("textinput").value;
@@ -64,7 +64,7 @@ class App extends React.Component {
   sendForEmotionAnalysis = () => {
     this.setState({sentiment:false});
     let ret = "";
-    let url = "https://aneesh-197-sentiment-analyzer-timely-oryx-kv.mybluemix.net";
+    let url = "https://sydneybuddy-8080.theiadocker-5.proxy.cognitiveclass.ai/";
     if(this.state.mode === "url") {
       url = url+"/url/emotion?url="+document.getElementById("textinput").value;
     } else {
@@ -73,7 +73,8 @@ class App extends React.Component {
     ret = axios.get(url);
 
     ret.then((response)=>{
-      this.setState({sentimentOutput:<EmotionTable emotions={response.data}/>});
+      this.setState({sentimentOutput:<div style={{fontSize:20}}><EmotionTable emotions={response.data}/></div>});
+     // this.setState({sentimentOutput:<EmotionTable emotions={response.data}/>});
   });
   }
   
